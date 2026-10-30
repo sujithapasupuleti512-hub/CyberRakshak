@@ -1,0 +1,71 @@
+.domain-title {
+  color: #67e8f9;
+  font-size: 36px;
+  margin-bottom: 15px;
+}
+
+.domain-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.domain-input {
+  width: min(100%, 500px);
+  padding: 15px;
+  background: #121e33;
+  color: #f8fafc;
+  border: 1px solid #334155;
+  border-radius: 9px;
+  font-size: 16px;
+}
+
+.domain-input:focus {
+  outline: 2px solid #67e8f9;
+}
+
+.domain-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  background: #121e33;
+  border: 1px solid #293951;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 12px 0;
+  color: #f8fafc;
+}
+
+.risk-badge {
+  padding: 7px 12px;
+  border-radius: 7px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.risk-high {
+  color: #fecaca;
+  background: #7f1d1d;
+}
+
+.risk-suspicious {
+  color: #fde68a;
+  background: #78350f;
+}
+
+@media (max-width: 600px) {
+  .domain-form {
+    flex-direction: column;
+  }
+
+  .domain-input {
+    width: 100%;
+  }
+
+  .domain-title {
+    font-size: 28px;
+  }
+}

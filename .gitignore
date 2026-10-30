@@ -1,0 +1,43 @@
+# ---------- Secrets / environment ----------
+# Never commit real environment files. Keep the *.example templates.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# ---------- Python / FastAPI backend ----------
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+# Local SQLite databases (do not commit data files)
+*.db
+*.sqlite
+*.sqlite3
+
+# ---------- Node / React frontend ----------
+node_modules/
+dist/
+dist-ssr/
+.vite/
+*.local
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ---------- Tooling / OS ----------
+# Local self-contained Python runtime used for testing only
+.tools/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.log
