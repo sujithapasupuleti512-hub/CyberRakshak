@@ -2,6 +2,7 @@
 
 from functools import lru_cache
 
+from pydantic import field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -22,6 +23,14 @@ class Settings(BaseSettings):
 
     # Database. SQLite by default; set DATABASE_URL for Postgres in production.
     database_url: str = "sqlite:///./cyberrakshak.db"
+
+    @field_validator("database_url")
+    @classmethod
+    def _normalize_database_url(cls, value: str) -> str:
+        """Rewrite legacy postgres:// URLs (Render/Heroku style) that SQLAlchemy 2 rejects."""
+        if value.startswith("postgres://"):
+            return value.replace("postgres://", "postgresql://", 1)
+        return value
 
     # Comma separated list of allowed frontend origins.
     cors_origins: str = "http://localhost:5173,http://127.0.0.1:5173"
