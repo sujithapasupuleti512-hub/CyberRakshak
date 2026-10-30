@@ -1,7 +1,9 @@
-// Central API client. Uses a relative base URL by default so that:
-//  - local dev  -> Vite proxy forwards /api to http://127.0.0.1:8000
-//  - production -> Vercel rewrites /api to the deployed FastAPI backend
-// VITE_API_URL can override the base URL if the backend lives elsewhere.
+// Central API client.
+//  - Local dev: VITE_API_URL is empty, so requests go to /api/* and the Vite
+//    dev server proxies them to http://127.0.0.1:8000.
+//  - Production (Vercel): set VITE_API_URL to the deployed FastAPI origin
+//    (e.g. https://cyberrakshak-api.onrender.com) so requests go straight to
+//    the backend. Never point it at localhost.
 
 const RAW_BASE = import.meta.env.VITE_API_URL || "";
 const API_BASE = RAW_BASE.replace(/\/$/, "");
